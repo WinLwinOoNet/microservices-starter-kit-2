@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{7557863D-0719-4E7E-9B63-0729C779DD53}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{63275B25-06CD-4260-8AC2-E7CC558F1AD6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{10EDB4C7-DED3-4B11-9A0E-C2523E0D4679}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{F7FC3F1E-9E91-4A25-BF7B-70DF63D61110}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Msk2.Domain.Core", "src\Domain\Msk2.Domain.Core\Msk2.Domain.Core.csproj", "{7370C277-7CE9-4D5F-A37C-FEEFE9616EDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7370C277-7CE9-4D5F-A37C-FEEFE9616EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7370C277-7CE9-4D5F-A37C-FEEFE9616EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7370C277-7CE9-4D5F-A37C-FEEFE9616EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7370C277-7CE9-4D5F-A37C-FEEFE9616EDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7370C277-7CE9-4D5F-A37C-FEEFE9616EDE} = {63275B25-06CD-4260-8AC2-E7CC558F1AD6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9412550-F25F-4020-BEC7-A379025F75BD}
+	EndGlobalSection
+EndGlobal
