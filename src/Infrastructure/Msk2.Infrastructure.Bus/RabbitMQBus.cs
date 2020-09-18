@@ -92,14 +92,7 @@ namespace Msk2.Infrastructure.Bus
             var eventName = @event.RoutingKey;
             var message = Encoding.UTF8.GetString(@event.Body.Span);
 
-            try
-            {
-                await ProcessEvent(eventName, message).ConfigureAwait(false);
-            }
-            catch (Exception ex)
-            {
-
-            }
+            await ProcessEvent(eventName, message).ConfigureAwait(false);
         }
 
         private async Task ProcessEvent(string eventName, string message)
