@@ -13,6 +13,8 @@
     <ProjectReference Include="..\..\Domain\Msk2.Domain.Core\Msk2.Domain.Core.csproj" />
     <ProjectReference Include="..\..\Microservices\Banking\Msk2.Banking.Application\Msk2.Banking.Application.csproj" />
     <ProjectReference Include="..\..\Microservices\Banking\Msk2.Banking.Data\Msk2.Banking.Data.csproj" />
+    <ProjectReference Include="..\..\Microservices\Transfer\Msk2.Transfer.Application\Msk2.Transfer.Application.csproj" />
+    <ProjectReference Include="..\..\Microservices\Transfer\Msk2.Transfer.Data\Msk2.Transfer.Data.csproj" />
     <ProjectReference Include="..\Msk2.Infrastructure.Bus\Msk2.Infrastructure.Bus.csproj" />
   </ItemGroup>
 

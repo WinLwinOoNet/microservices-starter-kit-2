@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Msk2.Banking.Domain.Commands
+﻿namespace Msk2.Banking.Domain.Commands
 {
     public class CreateTransferCommand : TransferCommand
     {
-        public CreateTransferCommand(int from, int to, decimal amount)
+        public CreateTransferCommand(int fromAccount, int toAccount, decimal transferAmount)
         {
-            From = from;
-            To = to;
-            Amount = amount;
+            FromAccount = fromAccount;
+            ToAccount = toAccount;
+            TransferAmount = transferAmount;
         }
     }
 }

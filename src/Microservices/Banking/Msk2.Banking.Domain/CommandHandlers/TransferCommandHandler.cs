@@ -18,7 +18,7 @@ namespace Msk2.Banking.Domain.CommandHandlers
 
         public Task<bool> Handle(CreateTransferCommand request, CancellationToken cancellationToken)
         {
-            _bus.Publish(new TransferCreatedEvent(request.From, request.To, request.Amount));
+            _bus.Publish(new TransferCreatedEvent(request.FromAccount, request.ToAccount, request.TransferAmount));
             return Task.FromResult(true);
         }
     }

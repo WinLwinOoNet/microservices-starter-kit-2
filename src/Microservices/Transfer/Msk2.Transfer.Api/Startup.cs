@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -6,10 +7,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Msk2.Banking.Data.Context;
+using Msk2.Domain.Core.Bus;
 using Msk2.Infrastructure.IoC;
+using Msk2.Transfer.Data.Context;
+using Msk2.Transfer.Domain.EventHandlers;
+using Msk2.Transfer.Domain.Events;
 
-namespace Msk2.Banking.Api
+namespace Msk2.Transfer.Api
 {
     public class Startup
     {
@@ -23,14 +27,14 @@ namespace Msk2.Banking.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BankingDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("BankingDbConnection")));
+            services.AddDbContext<TransferDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("TransferDbConnection")));
 
             services.AddControllers();
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Banking API V1", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Transfer API V1", Version = "v1" });
             });
 
             services.AddMediatR(typeof(Startup));
@@ -51,7 +55,7 @@ namespace Msk2.Banking.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
@@ -65,8 +69,16 @@ namespace Msk2.Banking.Api
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Banking API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Transfer API V1");
             });
+
+            ConfigureEventBus(app);
+        }
+
+        private void ConfigureEventBus(IApplicationBuilder app)
+        {
+            var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
+            eventBus.Subscribe<TransferCreatedEvent, TransferEventHandler>();
         }
     }
 }
